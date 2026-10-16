@@ -317,7 +317,7 @@ export function Registro() {
         </form>
 
         <div className="registro-pie">
-          <p>¿Ya tienes una cuenta? <a href="/login">Inicia sesión</a></p>
+          
         </div>
       </div>
     </div>

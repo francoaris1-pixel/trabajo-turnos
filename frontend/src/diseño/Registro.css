@@ -365,3 +365,94 @@ body {
   color: #1a5f43;
   border: 1px solid #b7e1c4;
 }
+
+
+/* ============================================================
+   LOGIN — Variante esmerilada sobre la misma tarjeta de registro
+   ============================================================ */
+.login-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(26, 95, 67, 0.08), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(11, 99, 197, 0.08), transparent 45%),
+    var(--bg-main);
+}
+
+.login-tarjeta {
+  max-width: 430px;
+  width: 100%;
+  margin: 40px 16px;
+  padding: 44px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+}
+
+.login-encabezado {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.login-encabezado h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 6px;
+}
+
+.login-encabezado p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.login-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-formulario .form-group input {
+  border-radius: 12px;
+}
+
+.btn-ingresar {
+  width: 100%;
+  padding: 13px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--primary-green);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+.btn-ingresar:hover:not(:disabled) {
+  background-color: #134631;
+  transform: translateY(-1px);
+}
+
+.btn-ingresar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.login-pie {
+  text-align: center;
+  margin-top: 26px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.login-pie a {
+  color: var(--primary-green);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-pie a:hover {
+  text-decoration: underline;
+}

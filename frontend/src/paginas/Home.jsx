@@ -5,7 +5,7 @@ import heroHospital from "../assets/hero.png";
 import "../diseño/HospitalHome.css";
 
 /**
- * Página de bienvenida del Hospital Zonal de Añatuya.
+ * Página de bienvenida del Hospital de GOYA.
  */
 function Home() {
   return (
@@ -24,11 +24,11 @@ function Home() {
                 d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"
               />
             </svg>
-            Añatuya · Santiago del Estero
+            GOYA · corrientes
           </span>
 
           <h1 className="hero-titulo">
-            Hospital Zonal de <span>Añatuya</span>
+            Hospital de <span>GOYA</span>
           </h1>
           <p className="hero-subtitulo">
             Tu salud, nuestra prioridad. Sacá tu turno online en pocos pasos y
@@ -45,10 +45,6 @@ function Home() {
                 />
               </svg>
               Solicitar turno
-            </Link>
-
-            <Link to="/servicios" className="btn-pill btn-pill-secundario">
-              Ver servicios
             </Link>
 
             <Link to="/mis-turnos" className="btn-pill btn-pill-secundario">
