@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { registrarPaciente } from "../api/api";
 import "../diseño/Registro.css";
 
 const PASOS = [
@@ -19,11 +21,15 @@ const INICIAL = {
 };
 
 export function Registro() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState(INICIAL);
   const [pasoActual, setPasoActual] = useState(0);
   const [errores, setErrores] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [enviando, setEnviando] = useState(false);
+  const [mensajeExito, setMensajeExito] = useState(null);
+  const [errorServidor, setErrorServidor] = useState(null);
 
   const cambiarCampo = (e) => {
     const { name, value } = e.target;
@@ -69,15 +75,41 @@ export function Registro() {
     if (indice < pasoActual) setPasoActual(indice);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errs = validarPasoActual(pasoActual, formData);
     if (Object.keys(errs).length > 0) {
       setErrores(errs);
       return;
     }
-    const { confirmarContrasena, ...nuevoPaciente } = formData;
-    console.log("Nuevo paciente registrado:", nuevoPaciente);
+
+    setEnviando(true);
+    setErrorServidor(null);
+    setMensajeExito(null);
+
+    try {
+      // JSON que espera el controlador del backend (SQL Server)
+      const payload = {
+        nombre: formData.nombre.trim(),
+        apellido: formData.apellido.trim(),
+        email: formData.email.trim().toLowerCase(),
+        password: formData.contrasena,        // alias
+        contrasena: formData.contrasena,      // nombre esperado por el controlador
+        dni: formData.dni,
+        fechaNacimiento: formData.fechaNacimiento,
+        telefono: formData.telefono,
+      };
+
+      await registrarPaciente(payload);
+      setMensajeExito("¡Cuenta creada con éxito! Ya podés iniciar sesión.");
+      setFormData(INICIAL);
+      setPasoActual(0);
+      setTimeout(() => navigate("/login"), 1500);
+    } catch (err) {
+      setErrorServidor(err.message || "No se pudo completar el registro.");
+    } finally {
+      setEnviando(false);
+    }
   };
 
   // Error visible: ya sea por envío o en tiempo real mientras escribe
@@ -256,8 +288,11 @@ export function Registro() {
           )}
 
           {/* --- ACCIONES --- */}
+          {errorServidor && <div className="registro-error-servidor">⚠️ {errorServidor}</div>}
+          {mensajeExito && <div className="registro-exito">✅ {mensajeExito}</div>}
+
           <div className="stepper-actions">
-            <button type="button" className="btn-nav" onClick={anterior} disabled={pasoActual === 0}>
+            <button type="button" className="btn-nav" onClick={anterior} disabled={pasoActual === 0 || enviando}>
               ← Anterior
             </button>
             {pasoActual < PASOS.length - 1 ? (
@@ -273,9 +308,9 @@ export function Registro() {
               <button
                 type="submit"
                 className={`btn-nav btn-next ${pasoValido ? "ready" : ""}`}
-                disabled={!pasoValido}
+                disabled={!pasoValido || enviando}
               >
-                Crear cuenta
+                {enviando ? "Creando cuenta…" : "Crear cuenta"}
               </button>
             )}
           </div>

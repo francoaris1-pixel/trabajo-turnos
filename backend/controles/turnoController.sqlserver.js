@@ -1,5 +1,6 @@
 // controles/turnoController.sqlserver.js — Turnos (SQL Server)
 const jwt = require('jsonwebtoken');
+const { sql } = require('../config/db.sqlserver');
 const { crearTurno, listarPorMedico, listarPorPaciente, cambiarEstado } = require('../modulos/Turno.sqlserver');
 
 const JWT_SECRET = process.env.JWT_SECRET;

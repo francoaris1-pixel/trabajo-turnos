@@ -101,6 +101,23 @@ BEGIN
 END;
 GO
 
+/* ---------- Tabla Horarios (días y horas de atención por médico) ---------- */
+IF OBJECT_ID(N'dbo.Horarios', N'U') IS NULL
+BEGIN
+    CREATE TABLE dbo.Horarios (
+        horario_id   INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Horarios PRIMARY KEY,
+        medico_id    INT               NOT NULL,
+        dias         NVARCHAR(120)     NOT NULL,          -- ej: 'Lunes a Viernes'
+        hora_inicio  TIME(0)           NOT NULL,
+        hora_fin     TIME(0)           NOT NULL,
+        CONSTRAINT FK_Horarios_Medicos FOREIGN KEY (medico_id) REFERENCES dbo.Medicos (medico_id) ON DELETE CASCADE,
+        CONSTRAINT CK_Horarios_Rango CHECK (hora_fin > hora_inicio)
+    );
+
+    CREATE INDEX IX_Horarios_Medico ON dbo.Horarios (medico_id);
+END;
+GO
+
 /* ---------- Relación Paciente <-> Médico (PacienteMedico) ---------- */
 IF OBJECT_ID(N'dbo.PacientesMedicos', N'U') IS NULL
 BEGIN

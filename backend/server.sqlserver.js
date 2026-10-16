@@ -5,6 +5,7 @@ const cors = require('cors');
 const { poolPromise } = require('./config/db.sqlserver');
 const authRoutes = require('./routes/authRoutes.sqlserver');
 const turnoRoutes = require('./routes/turnoRoutes.sqlserver');
+const medicoRoutes = require('./routes/medicoRoutes.sqlserver');
 
 const app = express();
 app.use(cors());
@@ -23,6 +24,7 @@ app.get('/health', async (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/turnos', turnoRoutes);
+app.use('/api/medicos', medicoRoutes);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`🚀 Servidor en http://localhost:${PORT}`));
