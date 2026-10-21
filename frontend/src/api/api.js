@@ -1,14 +1,26 @@
 // src/api/api.js — Puente de conexión Frontend <-> Backend (Express + SQL Server)
 // Centraliza la URL base y el manejo de errores para todas las peticiones.
 
-export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
+// Si VITE_API_URL está definida se usa tal cual; si no, se usa una ruta relativa
+// para que funcione detrás del proxy de Vite (dev) o de un rewrite en producción.
+// Usar rutas relativas evita errores de CORS y fallos de red ("Failed to fetch").
+export const API_URL = (import.meta.env.VITE_API_URL || "/api").replace(/\/$/, "");
 
 /** Helper genérico de fetch con JSON y manejo de errores del backend. */
 async function peticion(ruta, opciones = {}) {
-  const res = await fetch(`${API_URL}${ruta}`, {
-    headers: { "Content-Type": "application/json", ...(opciones.headers || {}) },
-    ...opciones,
-  });
+  let res;
+  try {
+    res = await fetch(`${API_URL}${ruta}`, {
+      // Las cabeceras de opciones van al final para respetar method/body.
+      ...opciones,
+      headers: { "Content-Type": "application/json", ...(opciones.headers || {}) },
+    });
+  } catch {
+    // Error de red: el backend no está levantado, la URL es incorrecta o CORS lo bloqueó.
+    throw new Error(
+      `No se pudo conectar con el servidor (${API_URL}). Verificá que el backend esté corriendo.`
+    );
+  }
 
   let data = null;
   try {

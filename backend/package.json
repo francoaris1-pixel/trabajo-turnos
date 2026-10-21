@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.sqlserver.js",
     "dev": "node --watch server.sqlserver.js",
+    "seed": "node scripts/seed-demo.sqlserver.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
