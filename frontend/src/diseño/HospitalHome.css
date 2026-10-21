@@ -1,0 +1,549 @@
+/* ============================================================
+   HospitalHome.css — Estilos premium del Hospital Zonal de Añatuya
+   Compartido por Home.jsx y Medicos.jsx
+   ============================================================ */
+
+:root {
+  --hz-azul: #0b63c5;
+  --hz-azul-oscuro: #084a94;
+  --hz-azul-suave: #e8f1fc;
+  --hz-texto: #16324a;
+  --hz-gris: #64748b;
+  --hz-fondo: #f5f8fc;
+  --hz-borde: #e2e8f0;
+  --hz-radio: 12px;
+  --hz-sombra: 0 6px 24px rgba(11, 99, 197, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", "Inter", Arial, sans-serif;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--hz-borde);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 12px rgba(22, 50, 74, 0.05);
+}
+
+.navbar-contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.navbar-marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--hz-texto);
+}
+
+.navbar-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--hz-azul);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-marca-texto {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.navbar-marca-texto strong {
+  font-size: 16px;
+}
+
+.navbar-marca-texto small {
+  font-size: 12px;
+  color: var(--hz-gris);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: var(--hz-gris);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+
+.navbar-link:hover {
+  color: var(--hz-azul);
+  background: var(--hz-azul-suave);
+}
+
+.navbar-link.active,
+.navbar-link.activo {
+  color: var(--hz-azul);
+  background: var(--hz-azul-suave);
+  font-weight: 600;
+}
+
+.navbar-acciones {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.navbar-btn {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+
+.navbar-btn-fantasma {
+  color: var(--hz-azul);
+  border: 1.5px solid var(--hz-azul);
+}
+
+.navbar-btn-fantasma:hover {
+  background: var(--hz-azul-suave);
+}
+
+.navbar-btn-primario {
+  background: var(--hz-azul);
+  color: #ffffff;
+  border: 1.5px solid var(--hz-azul);
+}
+
+.navbar-btn-primario:hover {
+  background: var(--hz-azul-oscuro);
+  border-color: var(--hz-azul-oscuro);
+}
+
+/* ---------- HERO (Home) ---------- */
+.hero {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--hz-azul-oscuro);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(6, 42, 85, 0.9) 20%, rgba(11, 99, 197, 0.55) 65%, rgba(11, 99, 197, 0.25));
+}
+
+.hero-contenido {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  width: 100%;
+  color: #ffffff;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.hero-titulo {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  line-height: 1.12;
+  margin-bottom: 16px;
+  max-width: 640px;
+}
+
+.hero-titulo span {
+  color: #9fd0ff;
+}
+
+.hero-subtitulo {
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 1.6;
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 30px;
+}
+
+.hero-acciones {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+
+.btn-pill-primario {
+  background: #ffffff;
+  color: var(--hz-azul-oscuro);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.btn-pill-primario:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.btn-pill-secundario {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.btn-pill-secundario:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: translateY(-2px);
+}
+
+/* ---------- ACCESOS RÁPIDOS (Home) ---------- */
+.home-accesos {
+  max-width: 1200px;
+  margin: -40px auto 60px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  position: relative;
+  z-index: 5;
+}
+
+.acceso-card {
+  background: #ffffff;
+  border: 1px solid var(--hz-borde);
+  border-radius: var(--hz-radio);
+  box-shadow: var(--hz-sombra);
+  padding: 26px 24px;
+  text-decoration: none;
+  color: var(--hz-texto);
+  transition: all 0.28s ease;
+}
+
+.acceso-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 34px rgba(11, 99, 197, 0.16);
+  border-color: rgba(11, 99, 197, 0.35);
+}
+
+.acceso-icono {
+  font-size: 30px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.acceso-card h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: var(--hz-azul-oscuro);
+}
+
+.acceso-card p {
+  font-size: 14px;
+  color: var(--hz-gris);
+  line-height: 1.5;
+}
+
+/* ---------- CARTILLA MÉDICA (Medicos) ---------- */
+.medicos-pagina {
+  min-height: 100vh;
+  background: var(--hz-fondo);
+  padding-bottom: 70px;
+}
+
+.medicos-encabezado {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 28px;
+  text-align: center;
+}
+
+.medicos-encabezado h1 {
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 800;
+  color: var(--hz-texto);
+  margin-bottom: 8px;
+}
+
+.medicos-encabezado p {
+  font-size: 16px;
+  color: var(--hz-gris);
+}
+
+.medicos-filtros {
+  max-width: 1200px;
+  margin: 0 auto 36px;
+  padding: 0 24px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.buscador {
+  flex: 1;
+  min-width: 240px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  border: 1.5px solid var(--hz-borde);
+  border-radius: 999px;
+  padding: 11px 18px;
+  color: var(--hz-gris);
+  transition: all 0.25s ease;
+}
+
+.buscador:focus-within {
+  border-color: var(--hz-azul);
+  box-shadow: 0 0 0 4px rgba(11, 99, 197, 0.12);
+}
+
+.buscador input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 15px;
+  color: var(--hz-texto);
+  background: transparent;
+}
+
+.selector {
+  min-width: 210px;
+  padding: 11px 18px;
+  border: 1.5px solid var(--hz-borde);
+  border-radius: 999px;
+  background: #ffffff;
+  font-size: 15px;
+  color: var(--hz-texto);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.selector:hover {
+  border-color: rgba(11, 99, 197, 0.45);
+}
+
+.selector:focus {
+  outline: none;
+  border-color: var(--hz-azul);
+  box-shadow: 0 0 0 4px rgba(11, 99, 197, 0.12);
+}
+
+/* Estados de carga / error / vacío */
+.medicos-estado,
+.medicos-vacio,
+.medicos-error {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 20px;
+  text-align: center;
+  color: var(--hz-gris);
+  font-size: 15px;
+}
+
+.medicos-error {
+  color: #b3261e;
+  font-weight: 500;
+}
+
+/* Grilla de tarjetas */
+.medicos-grilla {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+.medico-card {
+  background: #ffffff;
+  border: 1px solid var(--hz-borde);
+  border-radius: var(--hz-radio);
+  box-shadow: var(--hz-sombra);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.medico-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(11, 99, 197, 0.16);
+  border-color: rgba(11, 99, 197, 0.35);
+}
+
+.medico-card-cabecera {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.medico-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--hz-azul);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 1px;
+}
+
+.medico-card-datos h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--hz-texto);
+}
+
+.medico-especialidad {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--hz-azul-oscuro);
+  background: var(--hz-azul-suave);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.medico-descripcion {
+  font-size: 14px;
+  color: var(--hz-gris);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.medico-horarios {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.medico-horarios li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background: var(--hz-fondo);
+  border: 1px solid var(--hz-borde);
+  border-radius: 10px;
+  padding: 9px 13px;
+  font-size: 13.5px;
+}
+
+.horario-dia {
+  color: var(--hz-texto);
+  font-weight: 600;
+}
+
+.horario-rango {
+  color: var(--hz-azul-oscuro);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.medico-btn-turno {
+  margin-top: auto;
+  text-align: center;
+  text-decoration: none;
+  background: var(--hz-azul);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 18px;
+  border-radius: var(--hz-radio);
+  transition: all 0.25s ease;
+}
+
+.medico-btn-turno:hover {
+  background: var(--hz-azul-oscuro);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(11, 99, 197, 0.3);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 720px) {
+  .navbar-contenedor {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .navbar-menu,
+  .navbar-acciones {
+    justify-content: center;
+  }
+
+  .hero-contenido {
+    padding: 48px 20px;
+  }
+
+  .home-accesos {
+    margin-top: 24px;
+  }
+
+  .medicos-filtros {
+    flex-direction: column;
+  }
+
+  .buscador,
+  .selector {
+    width: 100%;
+    min-width: 0;
+  }
+}

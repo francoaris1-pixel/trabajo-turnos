@@ -1,0 +1,95 @@
+.login-pantalla {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.login-tarjeta {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-encabezado h2 {
+  margin: 0 auto;
+  color: #333333;
+  font-size: 26px;
+}
+
+.login-encabezado p {
+  color: #666666;
+margin-top: 10px;
+  font-size: 14px;
+}
+
+.login-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-grupo label {
+  font-size: 14px;
+  color: #333333;
+  font-weight: 500;
+}
+
+.input-grupo input {
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+/*cambia el color cuando el usiario hace click para escribir */
+.input-grupo input:focus {
+    outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.btn-ingresar {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn-ingresar:hover {
+  background-color: #0056b3;
+}
+
+.login-pie {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #666666;
+}
+
+.login-pie a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-pie a:hover {
+  text-decoration: underline;
+}
